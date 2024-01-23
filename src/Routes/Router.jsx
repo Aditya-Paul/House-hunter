@@ -8,6 +8,7 @@ import Dashboard from '../Layout/Dashboard';
 import Dashboardhome from '../Page/Dashboardhome';
 import Managehouse from '../Page/ManageHouse/Managehouse';
 import Addhouse from '../Page/Add house/Addhouse';
+import Houselist from '../Page/HouseList/Houselist';
 
 const Router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ const Router = createBrowserRouter([
             {
                 path: "addhouse",
                 element: <Addhouse></Addhouse>,
+            },
+            {
+                path: "houselist",
+                element: <Houselist></Houselist>,
             },
         ]
     },

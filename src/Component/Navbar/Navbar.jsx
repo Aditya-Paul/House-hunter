@@ -10,7 +10,7 @@ const Navbar = () => {
         setUseremail('')
         navigate('/')
     }
-    console.log(useremail)
+    //console.log(useremail)
     return (
         <div className="navbar bg-base-100 p-4">
             <div className="navbar-start">
