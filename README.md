@@ -1,4 +1,4 @@
-# React + Vite
+# Live: https://aquamarine-starship-a21858.netlify.app
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
