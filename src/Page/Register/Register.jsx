@@ -21,10 +21,12 @@ const Register = () => {
             name: data.name,
             email: data.email,
             category: data.category,
+            number: data.number,
             password: data.password
         }
+        console.log(userinfo)
 
-        axios.post("http://localhost:3000/users", userinfo)
+        axios.post("https://house-hunter-server-site-two.vercel.app/users", userinfo)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire("Good job!", "Registered Successfully & Posted to the database, Welcome", "success");
@@ -37,39 +39,7 @@ const Register = () => {
                 }
             })
 
-
-        //signup
-        // signup(data.email, data.password)
-
-        //     .then(res => {
-        //         //user update
-        //         update(data.name, data.photo_url)
-        //             .then(() => {
-
-        //                 const userinfo = {
-        //                     name: data.name,
-        //                     email: data.email,
-        //                     photo: data.photo_url,
-        //                     bagde: "bronze"
-        //                 }
-        //                 // user post to the database
-        //                 axiospublic.post('/users', userinfo)
-        //                     .then(res => {
-        //                         console.log(res.data)
-        //                         if (res.data.insertedId) {
-        //                             Swal.fire("Good job!", "Registered Successfully & Posted to the database, Welcome", "success");
-        //                             reset()
-        //                             navigate('/')
-
-        //                         }
-        //                     })
-
-        //             })
-        //             .catch(err => {
-        //                 console.log(err)
-        //             })
-        //     })
-    }//3
+    }
 
     return (
         <>
@@ -112,6 +82,16 @@ const Register = () => {
                                 <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" required />
 
                                 {errors.email && <span className='text-red-500'>Email is required</span>}
+
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Mobile Number</span>
+                                </label>
+
+                                <input type="text" {...register("number", { required: true })} placeholder="Number" className="input input-bordered" required />
+
+                                {errors.number && <span className='text-red-500'>Mobile Number is required</span>}
 
                             </div>
                             <div className="form-control">

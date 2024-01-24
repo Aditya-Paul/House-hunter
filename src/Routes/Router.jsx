@@ -9,6 +9,8 @@ import Dashboardhome from '../Page/Dashboardhome';
 import Managehouse from '../Page/ManageHouse/Managehouse';
 import Addhouse from '../Page/Add house/Addhouse';
 import Houselist from '../Page/HouseList/Houselist';
+import Myhouses from '../Page/My Houses/Myhouses';
+import RenterDashboard from '../Page/RenterDashboard/RenterDashboard';
 
 const Router = createBrowserRouter([
     {
@@ -38,8 +40,8 @@ const Router = createBrowserRouter([
                 element: <Dashboardhome></Dashboardhome>,
             },
             {
-                path: "managehouse",
-                element: <Managehouse></Managehouse>,
+                path: "myhouse",
+                element: <Myhouses></Myhouses>,
             },
             {
                 path: "addhouse",
@@ -48,6 +50,10 @@ const Router = createBrowserRouter([
             {
                 path: "houselist",
                 element: <Houselist></Houselist>,
+            },
+            {
+                path: "renterdashboard",
+                element: <RenterDashboard></RenterDashboard>,
             },
         ]
     },

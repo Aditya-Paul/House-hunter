@@ -9,8 +9,8 @@ const UseUserHouse = () => {
     const {data: userhouses=[],isLoading,refetch} = useQuery({
         queryKey:['userhouses',useremail],
         queryFn:async()=>{
-            const res = await axios.get(`http://localhost:3000/House/${useremail}`)
-            console.log(res.data)
+            const res = await axios.get(`https://house-hunter-server-site-two.vercel.app/House/${useremail}`)
+           // console.log(res.data)
             return res.data
         }
     })

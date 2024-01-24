@@ -24,7 +24,7 @@ const Houselist = () => {
     // form modal open
     const handleupdate = (id) =>{
         console.log(id)
-        axios.get(`http://localhost:3000/Houses/${id}`)
+        axios.get(`https://house-hunter-server-site-two.vercel.app/Houses/${id}`)
         .then(res=>{
             console.log(res.data)
             setindividualhouse(res.data)
@@ -51,9 +51,9 @@ const Houselist = () => {
             status:"Ready for rent",
         }
          console.log(houseinfo)
-        axios.put(`http://localhost:3000/singlehouse/${individualhouseid}`, houseinfo)
+        axios.put(`https://house-hunter-server-site-two.vercel.app/singlehouse/${individualhouseid}`, houseinfo)
         .then(res=>{
-            console.log(res.data)
+            //console.log(res.data)
             if (res.data.matchedCount) {
                 refetch()
                 Swal.fire("Good job!", `${data.name} succesfully updated`, "success");
@@ -64,9 +64,25 @@ const Houselist = () => {
             }
         })
 
-    }//3
+    }
 
-    // 
+    // Delete part
+    const handledelete = (id) =>{
+        console.log(id)
+        axios.delete(`https://house-hunter-server-site-two.vercel.app/individualhouse/${id}`)
+        .then(res=>{
+            console.log(res.data)
+            if (res.data.deletedCount) {
+                refetch()
+                Swal.fire("Good job!", `succesfully deleted`, "success");
+                
+            }
+            else if (res.data.matchedCount === null) {
+                Swal.fire("Oops!", `something Wrong`, "error");
+            }
+        })
+    }
+
     //console.log(individualhouse)
     // const { useremail = {} } = useContext(Authcontext)
     // if (!useremail) {
@@ -75,7 +91,7 @@ const Houselist = () => {
     // const { data: userhouses = [], isLoading, refetch } = useQuery({
     //     queryKey: ['useremail'],
     //     queryFn: async () => {
-    //         const response = await fetch(`http://localhost:3000/House/${useremail}`)
+    //         const response = await fetch(`https://house-hunter-server-site-two.vercel.app/House/${useremail}`)
     //         if (!response.ok) {
     //             throw new Error('Network response was not ok')
     //         }
@@ -86,7 +102,7 @@ const Houselist = () => {
 
     // useEffect(() => {
     //     if (useremail) {
-    //         axios.get(`http://localhost:3000/House/${useremail}`)
+    //         axios.get(`https://house-hunter-server-site-two.vercel.app/House/${useremail}`)
     //             .then(res => {
     //                 //setcurrentUser(res.data)
     //                 setdata(res.data)
@@ -124,7 +140,7 @@ const Houselist = () => {
                     {/* row 1 */}
                     {
                         userhouses?.map((item, index) => (
-                            <tr>
+                            <tr key={item._id}>
                                 <th>
                                     {index + 1}
                                 </th>

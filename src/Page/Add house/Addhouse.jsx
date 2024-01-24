@@ -35,7 +35,7 @@ const Addhouse = () => {
             status:"Ready for rent",
         }
         console.log(houseinfo)
-        axios.post('http://localhost:3000/houses', houseinfo)
+        axios.post('https://house-hunter-server-site-two.vercel.app/houses', houseinfo)
         .then(res=>{
             if (res.data.insertedId) {
                 Swal.fire("Good job!", "Houses Added", "success");
@@ -65,7 +65,7 @@ const Addhouse = () => {
                     </div>
                     <div className="space-x-4">
 
-                        <button className="btn" onClick={() => document.getElementById('my_modal_3').showModal()}>Add Home</button>
+                        <button className="btn" onClick={() => document.getElementById('my_modal_3').showModal()}>Add New Home</button>
                     </div>
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
 

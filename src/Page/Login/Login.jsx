@@ -7,7 +7,7 @@ import { Authcontext } from '../../Provider/Authprovider';
 
 const Login = () => {
     const navigate = useNavigate()
-    const { useremail,setUseremail } = useContext(Authcontext)
+    const { useremail,setUseremail,setUsername,setUsernumber } = useContext(Authcontext)
     console.log(useremail)
 
     const {
@@ -23,12 +23,12 @@ const Login = () => {
             password: data.password
         }
 
-        axios.post("http://localhost:3000/loginuser", userinfo)
+        axios.post("https://house-hunter-server-site-two.vercel.app/loginuser", userinfo)
             .then(res => {
                 console.log(res.data)
                 localStorage.setItem('access-token', JSON.stringify(res.data));
                 setUseremail(res.data.email)
-                navigate('/')
+                navigate('/dashboard')
             })
     }
 
